@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    rel="stylesheet"
+  />
+  <!-- Anime.css -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"
+  />
+  <style>
+    :root {
+  --color-primario: #3e4816;
+  --color-hover: #cc5500;
+  --sidebar-width: 250px;
+  --sidebar-collapsed-width: 55px;
+}
+
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background-color: var(--color-primario);
+  color: white;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cuando está colapsado */
+body.sidebar-collapsed #sidebar {
+  width: var(--sidebar-collapsed-width);
+}
+
+.sidebar-header {
+  padding: 0.75rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  white-space: nowrap;
+  transition: opacity 0.3s ease;
+}
+
+body.sidebar-collapsed .sidebar-title {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+/* Toggle botón siempre visible en desktop */
+.sidebar-toggle-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+}
+
+#sidebar .nav-link {
+  color: white;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+#sidebar .nav-link:hover {
+  background-color: var(--color-hover);
+}
+
+.nav-icon {
+  margin-right: 0.75rem;
+  width: 20px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.nav-text {
+  transition: opacity 0.2s ease;
+}
+
+body.sidebar-collapsed .nav-text {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+.content {
+  margin-left: var(--sidebar-width);
+  padding: 1.5rem;
+  transition: margin-left 0.3s ease;
+}
+
+body.sidebar-collapsed .content {
+  margin-left: var(--sidebar-collapsed-width);
+}
+
+/* Estilos para toggle móvil */
+.mobile-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1100;
+  background: var(--color-primario);
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  display: none;
+}
+
+@media (max-width: 991.98px) {
+  /* Mostrar botón móvil */
+  .mobile-toggle {
+    display: block;
+  }
+
+  /* Sidebar oculto por defecto */
+  #sidebar {
+    transform: translateX(-100%);
+    width: var(--sidebar-width);
+  }
+
+  /* Mostrar sidebar si el body tiene clase mobile-sidebar-open */
+  body.mobile-sidebar-open #sidebar {
+    transform: translateX(0);
+  }
+
+  /* Evitar margen en content */
+  .content {
+    margin-left: 0 !important;
+  }
+
+  /* Ocultar botón desktop toggle en mobile */
+  .sidebar-toggle-btn {
+    display: none;
+  }
+}
+
+  </style>
+
+  <body>     
+    
+    <!-- Botón Toggle móvil -->
+    <button class="mobile-toggle" id="mobileToggle">
+      <i class="fas fa-bars"></i>
+    </button>
+    <!-- Sidebar -->
+    <div id="sidebar">
+      <div class="sidebar-header">
+        <span class="sidebar-title">
+          <img
+            src="../assets/images/qhatuya-vertical.png"
+            width="180px"
+            alt=""
+          />
+        </span>
+        <button
+          id="desktopToggle"
+          class="sidebar-toggle-btn"
+          title="Expandir / Colapsar"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+
+      </div>
+
+      <a href="gestion-usuarios-globales.html" class="nav-link">
+        <i class="fas fa-users nav-icon"></i>
+        <span class="nav-text">Usuarios globales</span>
+      </a>
+      <a href="gestion-soporte.html" class="nav-link">
+        <i class="fas fa-user-shield nav-icon"></i>
+        <span class="nav-text">Soporte técnico</span>
+      </a>
+      <a href="reportes-generales.html" class="nav-link">
+        <i class="fas fa-file-alt nav-icon"></i>
+        <span class="nav-text">Reportes generales</span>
+      </a>
+      <a href="control-membresias.html" class="nav-link">
+        <i class="fas fa-layer-group nav-icon"></i>
+        <span class="nav-text">Control de membresías</span>
+      </a>
+    </div>
+
+    <!-- jQuery y Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Scripts -->
+
+  </body>
+  <script>
+    const desktopToggle = document.getElementById("desktopToggle");
+    const mobileToggle = document.getElementById("mobileToggle");
+  
+    // Toggle desktop (colapsar ancho)
+    if (desktopToggle) {
+      desktopToggle.addEventListener("click", () => {
+        document.body.classList.toggle("sidebar-collapsed");
+      });
+    }
+  
+    // Toggle mobile (mostrar sidebar)
+    if (mobileToggle) {
+      mobileToggle.addEventListener("click", () => {
+        document.body.classList.toggle("mobile-sidebar-open");
+      });
+  
+      // También puedes cerrar al hacer clic fuera del sidebar si quieres:
+      window.addEventListener("click", (e) => {
+        const sidebar = document.getElementById("sidebar");
+        if (
+          document.body.classList.contains("mobile-sidebar-open") &&
+          !sidebar.contains(e.target) &&
+          !mobileToggle.contains(e.target)
+        ) {
+          document.body.classList.remove("mobile-sidebar-open");
+        }
+      });
+    }
+  </script>
+  
+</html>

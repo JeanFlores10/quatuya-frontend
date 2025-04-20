@@ -1,0 +1,58 @@
+/* SIDEBAR  */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fffaf5;
+  }
+  .navbar-custom {
+    background-color: #ff7f00;
+  }
+  .navbar-brand {
+    color: white;
+    font-weight: bold;
+  }
+  .navbar-brand:hover {
+    color: #f0f0f0;
+  }
+  .nav-link {
+    color: white !important;
+    font-weight: 500;
+  }
+  .nav-link:hover {
+    color: #ffe7c7 !important;
+  }
+  .nav-icon {
+    margin-right: 6px;
+  }
+  /* SIDEBAR */
+
+  /* DASHBOARD CLIENTE */
+  body {
+    background-color: #F9F9F9;
+    font-family: 'Segoe UI', sans-serif;
+    color: #4A5A23;
+  }
+  .product-card {
+    border-radius: 16px;
+    border: 1px solid #e0e0e0;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+  .product-card:hover {
+    transform: scale(1.02);
+  }
+  .btn-buy {
+    background-color: #F17C1D;
+    border: none;
+    color: white;
+  }
+  .btn-buy:hover {
+    background-color: #d7680f;
+  }
+  .section-title {
+    border-left: 5px solid #D2661D;
+    padding-left: 10px;
+    margin-bottom: 20px;
+  }
+
+  /* DASHBOARD CLIENTE */

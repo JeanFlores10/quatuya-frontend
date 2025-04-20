@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QhatuYA - Iniciar Sesión</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"  />
+  <link href="../assets/css/style.css" rel="stylesheet" />
+</head>
+<body class="bg-light d-flex align-items-center justify-content-center vh-100">
+  <div class="card shadow-lg p-4 animate__animated animate__fadeIn" style="max-width: 400px; width: 100%;">
+    <div class="text-center mb-4">
+      <img src="assets/images/logo.png" alt="QhatuYA Logo" style="height: 160px;" />
+    </div>
+    <h5 class="text-center mb-3" style="color: #cc5500;">Bienvenido a QhatuYA</h5>
+    <form id="loginForm">
+      <div class="mb-3">
+        <label class="form-label">Correo electrónico</label>
+        <input type="email" class="form-control" id="email" placeholder="ejemplo@correo.com" required />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="password" placeholder="********" required />
+      </div>
+      <div class="d-grid">
+        <button type="submit" class="btn" style="background-color: #cc5500; color: white;">Ingresar</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+
+      if (email === "admin@yopmail.com" && password === "123456") {
+        window.location.href = "admin-general/panel-administrativo-general.html";
+      } else if (email === "negocio@yopmail.com" && password === "123456") {
+        window.location.href = "modulo-negocio/dashboard-admin.html";
+      } else if (email === "cliente@yopmail.com" && password === "123456") {
+        window.location.href = "cliente/dashboard-cliente.html";
+      } else {
+        alert("Correo o contraseña incorrectos.");
+      }
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

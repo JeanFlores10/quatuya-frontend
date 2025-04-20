@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de Administración General - QhatuYA</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Anime.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"
+    />
+    <link rel="stylesheet" href="../assets/css/styless.css">
+    <!-- Custom Styles -->
+
+  </head>
+  <body class="fade-in ">
+    
+
+   <!-- Botón Toggle móvil -->
+   <button class="mobile-toggle" id="mobileToggle">
+    <i class="fas fa-bars"></i>
+  </button>
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <div class="sidebar-header">
+      <a class="sidebar-title" href="panel-administrativo-general.html">
+        <img
+          src="../assets/images/qhatuya-vertical.png"
+          width="180px"
+          alt=""
+        />
+      </a>
+      <button
+        id="desktopToggle"
+        class="sidebar-toggle-btn"
+        title="Expandir / Colapsar"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+  
+    </div>
+  
+    <a href="gestion-usuarios-globales.html" class="nav-link">
+      <i class="fas fa-users nav-icon"></i>
+      <span class="nav-text">Usuarios globales</span>
+    </a>
+    <a href="gestion-soporte.html" class="nav-link">
+      <i class="fas fa-user-shield nav-icon"></i>
+      <span class="nav-text">Soporte técnico</span>
+    </a>
+    <a href="reportes-generales.html" class="nav-link">
+      <i class="fas fa-file-alt nav-icon"></i>
+      <span class="nav-text">Reportes generales</span>
+    </a>
+    <a href="control-membresias.html" class="nav-link">
+      <i class="fas fa-layer-group nav-icon"></i>
+      <span class="nav-text">Control de membresías</span>
+    </a>
+  </div>
+    <!-- Contenido principal -->
+    <div class="content" id="mainContent">
+      <div class="container mt-5">
+        <div class="header-text text-center">
+          <h2>Bienvenido administrador general</h2>
+          <p>Selecciona una opción del menú lateral para comenzar.</p>
+        </div>
+        <div class="row">
+          <!-- Total de negocios registrados -->
+          <div class="col-md-3">
+            <div class="card shadow-sm text-center p-3 panel-card">
+              <i class="fas fa-store fa-2x mb-2" style="color: #626c3a"></i>
+              <h5>Negocios registrados</h5>
+              <div class="value">50</div>
+            </div>
+          </div>
+
+          <!-- Cantidad de negocios activos -->
+          <div class="col-md-3">
+            <div class="card shadow-sm text-center p-3 panel-card">
+              <i class="fas fa-shop fa-2x mb-2" style="color: #626c3a"></i>
+              <h5>Negocios activos</h5>
+              <div class="value">40</div>
+            </div>
+          </div>
+          <!-- Número de planes activos -->
+          <div class="col-md-3">
+            <div class="card shadow-sm text-center p-3 panel-card">
+              <i class="fas fa-id-card fa-2x mb-2" style="color: #626c3a"></i>
+              <h5>Planes activos</h5>
+              <div class="value">30</div>
+            </div>
+          </div>
+          <!-- Alerta de membresías por vencer -->
+          <div class="col-md-3">
+            <div class="card shadow-sm text-center p-3 panel-card">
+              <i class="fas fa-credit-card fa-2x mb-2 text-danger" style="color: #626c3a"></i>
+              <h5 class="text-danger">Membresías por vencer</h5>
+              <div class="value">5</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Acceso a reportes globales -->
+        <div class="row mt-5">
+          <div class="col-12 text-center">
+            <a class="btn btn-report btn-lg" href="reportes-generales.html">
+              Acceder a Reportes Globales
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery y Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Scripts -->
+<script src="../assets/js/funciones.js"></script>
+  </body>
+</html>

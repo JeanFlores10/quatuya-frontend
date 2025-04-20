@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Error de Pago</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #fff5f5;
+      color: #963E1A;
+    }
+    .card {
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+    .icon-error {
+      color: #dc3545;
+      font-size: 4rem;
+    }
+    .btn-retry {
+      background-color: #D2661D;
+      border: none;
+    }
+    .btn-retry:hover {
+      background-color: #b85110;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card text-center p-4 animate__animated animate__fadeInDown">
+        <div class="mb-3">
+          <i class="fas fa-times-circle icon-error animate__animated animate__shakeX"></i>
+        </div>
+        <h3 class="mb-3">¡Error en el pago!</h3>
+        <p>Hubo un problema al procesar tu pago. Por favor, revisa los datos e intenta nuevamente.</p>
+        <div class="mt-4">
+          <a href="/planes" class="btn btn-retry text-white px-4">
+            <i class="fas fa-redo me-2"></i>Reintentar Pago
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

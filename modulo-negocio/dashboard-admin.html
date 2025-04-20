@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Inicio - Administrador del Negocio</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Anime.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"
+    />
+    <!-- FontAwesome CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../assets/css/negocio/styless.css" />
+  <style>
+
+  </style>
+</head>
+<body>
+
+  <!-- Toggle móvil -->
+  <button id="mobileToggle" class="mobile-toggle">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <div class="sidebar-header">
+      <span class="sidebar-title"><i class="fas fa-store"></i> QhatuYA</span>
+      <button
+        id="desktopToggle"
+        class="sidebar-toggle-btn"
+        title="Expandir / Colapsar"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    <a href="gestion-empleados.html" class="nav-link"
+      ><i class="fas fa-users nav-icon"></i
+      ><span class="nav-text">Empleados</span></a
+    >
+    <a href="gestion-roles-permisos.html" class="nav-link"
+      ><i class="fas fa-user-shield nav-icon"></i
+      ><span class="nav-text">Roles y Permisos</span></a
+    >
+    <a href="gestion-productos.html" class="nav-link"
+      ><i class="fas fa-box-open nav-icon"></i
+      ><span class="nav-text">Productos</span></a
+    >
+    <a href="gestion-ventas.html" class="nav-link"
+      ><i class="fas fa-cash-register nav-icon"></i
+      ><span class="nav-text">Ventas</span></a
+    >
+    <a href="reportes.html" class="nav-link"
+      ><i class="fas fa-file-alt nav-icon"></i
+      ><span class="nav-text">Reportes</span></a
+    >
+    <a href="informacion-negocio.html" class="nav-link"
+      ><i class="fas fa-building nav-icon"></i
+      ><span class="nav-text">Mi Negocio</span></a
+    >
+    <a href="membresia-planes.html" class="nav-link"
+      ><i class="fas fa-layer-group nav-icon"></i
+      ><span class="nav-text">Membresía</span></a
+    >
+    <a href="membresia-facturacion.html" class="nav-link"
+      ><i class="fas fa-receipt nav-icon"></i
+      ><span class="nav-text">Facturación</span></a
+    >
+  </div>
+  
+  <div class="content" id="mainContent">
+  <div class="container mt-5">
+    <h2 class="section-title">Panel de Inicio - Administrador del Negocio</h2>
+
+    <!-- Dashboard del Administrador -->
+    <div class="dashboard-container">
+      <div class="row">
+        <!-- Ventas del Día -->
+        <div class="col-md-3 col-sm-6">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="stat-title"><i class="fas fa-wallet"></i> Ventas del Día</h5>
+            </div>
+            <div class="card-body">
+              <p class="stat-value">S/ 450.00</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Productos Activos -->
+        <div class="col-md-3 col-sm-6">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="stat-title"><i class="fas fa-cogs"></i> Productos Activos</h5>
+            </div>
+            <div class="card-body">
+              <p class="stat-value">120</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Clientes Registrados -->
+        <div class="col-md-3 col-sm-6">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="stat-title"><i class="fas fa-users"></i> Clientes Registrados</h5>
+            </div>
+            <div class="card-body">
+              <p class="stat-value">350</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Productos con Stock Bajo -->
+        <div class="col-md-3 col-sm-6">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="stat-title"><i class="fas fa-exclamation-triangle"></i> Productos con Stock Bajo</h5>
+            </div>
+            <div class="card-body">
+              <p class="stat-value">5</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Información de Membresía -->
+        <div class="col-md-6 col-sm-12">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="stat-title"><i class="fas fa-calendar-check"></i> Membresía (Mensual/Anual)</h5>
+            </div>
+            <div class="card-body">
+              <p class="stat-value">Activa - Vencimiento: 2025-05-01</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Acceso a Reportes -->
+        <div class="col-md-6 col-sm-12">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="stat-title"><i class="fas fa-chart-line"></i> Acceso Rápido a Reportes</h5>
+            </div>
+            <div class="card-body">
+              <button class="btn-report" data-bs-toggle="modal" data-bs-target="#reportModal"><i class="fas fa-search"></i> Ver Reportes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal para Reportes -->
+    <div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="reportModalLabel"><i class="fas fa-file-alt"></i> Seleccionar Reporte</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Seleccione el tipo de reporte que desea visualizar:</p>
+            <ul>
+              <li><strong><i class="fas fa-wallet"></i> Reporte de Ventas</strong></li>
+              <li><strong><i class="fas fa-cogs"></i> Reporte de Productos</strong></li>
+              <li><strong><i class="fas fa-users"></i> Reporte de Clientes</strong></li>
+              <li><strong><i class="fas fa-calendar-check"></i> Reporte de Membresías</strong></li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary"><i class="fas fa-download"></i> Generar Reporte</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+  <!-- jQuery y Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Soporte - QhatuYA</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<!-- Anime.css -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"
+/>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../assets/css/styless.css" />
+    <style>
+
+    </style>
+  </head>
+  <body>
+    <!-- Toggle móvil -->
+    <button id="mobileToggle" class="mobile-toggle">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+      <div class="sidebar-header">
+      <a class="sidebar-title" href="panel-administrativo-general.html">
+        <img
+          src="../assets/images/qhatuya-vertical.png"
+          width="180px"
+          alt=""
+        />
+      </a>
+        <button
+          id="desktopToggle"
+          class="sidebar-toggle-btn"
+          title="Expandir / Colapsar"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+      <a href="gestion-usuarios-globales.html" class="nav-link"
+        ><i class="fas fa-users nav-icon"></i
+        ><span class="nav-text">Usuarios globales</span></a
+      >
+      <a href="gestion-soporte.html" class="nav-link"
+        ><i class="fas fa-user-shield nav-icon"></i
+        ><span class="nav-text">Soport técnico</span></a
+      >
+      <a href="reportes-generales.html" class="nav-link"
+        ><i class="fas fa-file-alt nav-icon"></i
+        ><span class="nav-text">Reportes generales</span></a
+      >
+      <a href="control-membresias.html" class="nav-link"
+        ><i class="fas fa-layer-group nav-icon"></i
+        ><span class="nav-text">Control de membresías</span></a
+      >
+    </div>
+    <!-- Contenido principal -->
+    <div class="content" id="mainContent">
+      <div class="container mt-5">
+        <h2 class="section-title">Gestión de Soporte Técnico</h2>
+
+        <!-- Listado de Tickets -->
+        <div class="support-container">
+          <div class="card">
+            <div class="card-header">
+              <h5>Listado de Solicitudes / Tickets</h5>
+            </div>
+            <div class="card-body">
+              <table class="table table-bordered">
+                <thead class="thead-light">
+                  <tr>
+                    <th>#</th>
+                    <th>Negocio Afectado</th>
+                    <th>Descripción del Problema</th>
+                    <th>Estado del Ticket</th>
+                    <th>Respuesta del Soporte</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Negocio XYZ</td>
+                    <td>Problema con la membresía activa</td>
+                    <td class="ticket-status">Pendiente</td>
+                    <td>Ninguna</td>
+                    <td>
+                      <button
+                        class="btn-update"
+                        data-bs-toggle="modal"
+                        data-bs-target="#responseModal"
+                      >
+                        Responder
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Negocio ABC</td>
+                    <td>Acceso denegado a la cuenta</td>
+                    <td class="ticket-status">En proceso</td>
+                    <td>En revisión por el equipo de soporte</td>
+                    <td>
+                      <button
+                        class="btn-update"
+                        data-bs-toggle="modal"
+                        data-bs-target="#responseModal"
+                      >
+                        Responder
+                      </button>
+                    </td>
+                  </tr>
+                  <!-- Agregar más filas de tickets según sea necesario -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal para Responder a los Tickets -->
+        <div
+          class="modal fade"
+          id="responseModal"
+          tabindex="-1"
+          aria-labelledby="responseModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="responseModalLabel">
+                  Responder al Ticket
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="mb-3">
+                    <label for="ticket-response" class="form-label"
+                      >Respuesta del equipo de soporte</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="ticket-response"
+                      rows="3"
+                      placeholder="Escribe tu respuesta aquí..."
+                    ></textarea>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn "
+                  data-bs-dismiss="modal"
+                >
+                  Cerrar
+                </button>
+                <button type="button" class="btn">
+                  Enviar Respuesta
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery y Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/funciones.js"></script>
+  </body>
+</html>

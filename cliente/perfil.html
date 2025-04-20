@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mi Perfil</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="../assets/css/cliente/styless.css">
+  <style>
+    body {
+      background: linear-gradient(to right, #fffaf5, #ffe0c2);
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .profile-container {
+      max-width: 700px;
+      margin: auto;
+      padding: 2rem;
+    }
+    .card-profile {
+      border-radius: 1.5rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+      background-color: #fff;
+      padding: 2rem;
+      position: relative;
+    }
+    .section-header {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #ff7f00;
+      margin-bottom: 1rem;
+    }
+    .form-control:disabled {
+      background-color: #f8f8f8;
+    }
+    .edit-btn {
+      background-color: #ff7f00;
+      color: white;
+    }
+    .edit-btn:hover {
+      background-color: #e66e00;
+    }
+    .profile-pic-wrapper {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #ff7f00;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><i class="fas fa-store"></i> Nombre negocio</a>
+      <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCliente" aria-controls="navbarCliente" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCliente">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="dashboard-cliente.html"><i class="fas fa-home nav-icon"></i>Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="carrito-compras.html"><i class="fas fa-shopping-cart nav-icon"></i>Carrito</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="historial-pedidos.html"><i class="fas fa-receipt nav-icon"></i>Mis Pedidos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="perfil.html"><i class="fas fa-user nav-icon"></i>Mi Perfil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html"><i class="fas fa-sign-out-alt nav-icon"></i>Cerrar Sesión</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="profile-container">
+    <div class="card-profile">
+      <div class="profile-pic-wrapper">
+        <img src="https://i.pravatar.cc/120?img=3" alt="Foto de perfil" class="profile-pic">
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="section-header"><i class="fas fa-id-card me-2"></i>Mi Perfil</div>
+        <button id="editToggle" class="btn btn-sm edit-btn"><i class="fas fa-pen"></i> Editar</button>
+      </div>
+
+      <form id="profileForm">
+        <div class="mb-3">
+          <label class="form-label">Nombre completo</label>
+          <input type="text" class="form-control" id="nombre" value="Juan Pérez" disabled>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Correo electrónico</label>
+          <input type="email" class="form-control" id="correo" value="juan@email.com" disabled>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Número de contacto</label>
+          <input type="tel" class="form-control" id="telefono" value="987654321" disabled>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Dirección por defecto</label>
+          <textarea class="form-control" id="direccion" rows="2" disabled>Av. Principal 123, Lima, Perú</textarea>
+        </div>
+        <div class="text-end">
+          <button type="submit" class="btn edit-btn d-none" id="saveBtn"><i class="fas fa-save me-1"></i>Guardar cambios</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const editToggle = document.getElementById("editToggle");
+    const inputs = document.querySelectorAll("#profileForm input, #profileForm textarea");
+    const saveBtn = document.getElementById("saveBtn");
+
+    editToggle.addEventListener("click", () => {
+      const isEditing = !inputs[0].disabled;
+      inputs.forEach(input => input.disabled = isEditing);
+      saveBtn.classList.toggle("d-none", isEditing);
+      editToggle.innerHTML = isEditing
+        ? '<i class="fas fa-pen"></i> Editar'
+        : '<i class="fas fa-times"></i> Cancelar';
+    });
+  </script>
+</body>
+</html>

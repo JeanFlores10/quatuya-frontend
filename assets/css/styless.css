@@ -1,0 +1,422 @@
+
+      /* INICIO ESTILOS SIDEBAR */
+      :root {
+        --color-primario: #3e4816;
+        --color-hover: #cc5500;
+        --sidebar-width: 250px;
+        --sidebar-collapsed-width: 55px;
+      }
+      
+      #sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: var(--sidebar-width);
+        height: 100vh;
+        background-color: var(--color-primario);
+        color: white;
+        transition: all 0.3s ease;
+        z-index: 1000;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      /* Cuando está colapsado */
+      body.sidebar-collapsed #sidebar {
+        width: var(--sidebar-collapsed-width);
+      }
+      
+      .sidebar-header {
+        padding: 0.75rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      
+      .sidebar-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        white-space: nowrap;
+        transition: opacity 0.3s ease;
+      }
+      
+      body.sidebar-collapsed .sidebar-title {
+        opacity: 0;
+        width: 0;
+        overflow: hidden;
+      }
+      
+      /* Toggle botón siempre visible en desktop */
+      .sidebar-toggle-btn {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+        padding: 0.25rem 0.5rem;
+      }
+      
+      #sidebar .nav-link {
+        color: white;
+        padding: 0.75rem 1rem;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+      
+      #sidebar .nav-link:hover {
+        background-color: var(--color-hover);
+      }
+      
+      .nav-icon {
+        margin-right: 0.75rem;
+        width: 20px;
+        text-align: center;
+        font-size: 1rem;
+      }
+      
+      .nav-text {
+        transition: opacity 0.2s ease;
+      }
+      
+      body.sidebar-collapsed .nav-text {
+        opacity: 0;
+        width: 0;
+        overflow: hidden;
+      }
+      
+      .content {
+        margin-left: var(--sidebar-width);
+        padding: 1.5rem;
+        transition: margin-left 0.3s ease;
+      }
+      
+      body.sidebar-collapsed .content {
+        margin-left: var(--sidebar-collapsed-width);
+      }
+      
+      /* Estilos para toggle móvil */
+      .mobile-toggle {
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        z-index: 1100;
+        background: var(--color-primario);
+        border: none;
+        color: white;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        font-size: 1.2rem;
+        display: none;
+      }
+      
+      @media (max-width: 991.98px) {
+        /* Mostrar botón móvil */
+        .mobile-toggle {
+          display: block;
+        }
+      
+        /* Sidebar oculto por defecto */
+        #sidebar {
+          transform: translateX(-100%);
+          width: var(--sidebar-width);
+        }
+      
+        /* Mostrar sidebar si el body tiene clase mobile-sidebar-open */
+        body.mobile-sidebar-open #sidebar {
+          transform: translateX(0);
+        }
+      
+        /* Evitar margen en content */
+        .content {
+          margin-left: 0 !important;
+        }
+      
+        /* Ocultar botón desktop toggle en mobile */
+        .sidebar-toggle-btn {
+          display: none;
+        }
+      }
+      
+/* FIN SIDEBAR */
+
+/* INCIO GESTION DE USUARIOS GLOBALES */
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    color: #4a5a23;
+    
+    margin: 0;
+    overflow-x: hidden;
+    transition: margin-left 0.3s ease;
+  }
+  .user-management-container {
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  .section-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #4a5a23;
+  }
+  .card {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+  }
+  .card-header {
+    background-color: #4a5a23;
+    color: #fff;
+  }
+  .status-badge {
+    font-weight: bold;
+  }
+  .btn-reset {
+    background-color: #cc5500;
+    border: none;
+    color: white;
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .btn-reset:hover {
+    background-color: #e86202;
+    border: none;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 1.5rem;
+    }
+    .card-header h5 {
+      font-size: 1.2rem;
+    }
+    .table th,
+    .table td {
+      padding: 8px;
+      font-size: 0.9rem;
+    }
+    .btn-reset {
+      font-size: 0.9rem;
+      padding: 8px 15px;
+    }
+  }
+
+/* FIN GESTION DE USUARIOS GLOBALES  */
+
+
+      /* PANEL ADMINISTRATIVO GENERAL */
+
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f4f9;
+        color: #4a5a23;
+      }
+      .panel-card {
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 25px;
+        background-color: #fff;
+        text-align: center;
+        transition: transform 0.3s ease-in-out;
+      }
+      .panel-card:hover {
+        transform: translateY(-10px);
+      }
+      .panel-card h5 {
+        font-size: 1.2rem;
+        color: #4a5a23;
+        font-weight: 600;
+      }
+      .panel-card .value {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #f17c1d;
+      }
+      .alert-warning {
+        background-color: #963e1a;
+        color: #fff;
+        border-radius: 12px;
+        padding: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .btn-report {
+        background-color: #4c613c;
+        color: white;
+        border-radius: 25px;
+        padding: 10px 30px;
+        font-size: 1.2rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .btn-report:hover {
+        background-color: #d2661d;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+      .header-text {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #4a5a23;
+        margin-bottom: 40px;
+      }
+      /* Animación de Fade-in para la página */
+      .fade-in {
+        animation: fadeIn 0.5s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @media (max-width: 768px) {
+        .panel-card {
+          margin-bottom: 20px;
+        }
+      }
+      /* FIN PANEL ADMINISTRATIVO GENERAL  */
+
+
+      /* INICIO CONTROL DE MEMBRESIAS */
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f4f9;
+        color: #3e4816;
+      }
+      .table-responsive {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+      }
+      .table th, .table td {
+        text-align: center;
+        padding: 12px;
+        vertical-align: middle;
+      }
+      .table thead {
+        background-color: #3e4816;
+        color: #fff;
+      }
+      .btn-edit, .btn-toggle {
+        background-color: #3e4816;
+        color: white;
+        border-radius: 12px;
+        padding: 10px 20px;
+        font-size: 1rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 5px;
+      }
+      .btn-edit:hover, .btn-toggle:hover {
+        background-color: #cc5500;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+      .modal-header {
+        background-color: #3e4816;
+        color: white;
+      }
+      .modal-footer .btn {
+        background-color: #3e4816;
+        color: white;
+      }
+      .modal-footer .btn:hover {
+        background-color: #cc5500;
+      }
+      /* FIN CONTROL DE MEMBRESIAS */
+
+      /* INICIO GESTION DE SOPORTE */
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f4f9;
+        color: #3e4816;
+      }
+      .support-container {
+        padding: 30px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .section-title {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #3e4816;
+      }
+      .card {
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+      }
+      .card-header {
+        background-color: #3e4816;
+        color: #fff;
+      }
+      .ticket-status {
+        font-weight: bold;
+      }
+      .btn-update {
+        background-color: #cc5500;
+        color: white;
+        border-radius: 12px;
+        padding: 10px 20px;
+        font-size: 1rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border: none;
+      }
+      .btn-update:hover {
+        background-color: #e86202;
+      }
+      /* FIN GESTION DE SOPORTE  */
+
+      /* INICIO REPORTES GLOBALES */
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f4f9;
+        color: #4A5A23;
+      }
+      .report-container {
+        padding: 30px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      .section-title {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #4A5A23;
+      }
+      .card {
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+      }
+      .card-header {
+        background-color: #4A5A23;
+        color: #fff;
+      }
+      .btn-export {
+        background-color: var(--color-hover);
+        color: white;
+        border-radius: 12px;
+        padding: 10px 20px;
+        font-size: 1rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border: none;
+      }
+      .btn-export:hover {
+        background-color: var(--color-hover);
+      }
+      .graph-container {
+        max-height: 400px;
+      }
+      /* FIN REPORTES GLOBALES */
